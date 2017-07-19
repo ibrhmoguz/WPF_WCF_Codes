@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<Tasima xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <OzetBeyanNo>14330100IM000002</OzetBeyanNo>
+  <TasitAdi>test123</TasitAdi>
+  <SeferNo>1234567</SeferNo>
+  <TasitNo>1234567</TasitNo>
+  <GelisGidisTarihi>2014-01-30T20:58:11.166712+02:00</GelisGidisTarihi>
+  <GelisGidisBildirimNo>14330100VB0000000002</GelisGidisBildirimNo>
+  <IsletmeKodu>test123</IsletmeKodu>
+  <Tipi>L</Tipi>
+  <Yonu>GELIS</Yonu>
+  <tasimaDetaylari>
+    <TasimaDetay>
+      <TescilNo />
+      <TasimaSenediNo>TStest123</TasimaSenediNo>
+      <KapAdedi>13</KapAdedi>
+      <Turu>TURtest123</Turu>
+      <KonteynerNo>KNtest123</KonteynerNo>
+      <NetAgirlik>13</NetAgirlik>
+      <EsyaCinsi>ESYACINSItest123</EsyaCinsi>
+    </TasimaDetay>
+  </tasimaDetaylari>
+</Tasima>

@@ -1,0 +1,44 @@
+﻿<Window x:Class="EmployeeDesignation.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Title="Personel Atama" 
+        Height="300" 
+        Width="400" WindowStartupLocation="CenterScreen" WindowState="Normal" 
+        Icon="/PersonelAtama;component/Images/logoIco.ico">
+    <Grid Name="MainGrid" Margin="5">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="15"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="0">
+            <Image Grid.Row="0" Name="image1" Source="/PersonelAtama;component/Images/LoginHeader.jpg" />
+        </StackPanel>
+        <Label Grid.Column="0" Grid.Row="2" FontWeight="Bold">Kullanıcı Adı :</Label>
+        <TextBox Grid.Column="1" Name="txtTcno" Grid.Row="2" />
+
+
+        <Label Grid.Column="0" Grid.Row="4" FontWeight="Bold">Şifre :</Label>
+        <PasswordBox Grid.Column="1" Grid.Row="4" Name="txtsifre" PasswordChar="*"></PasswordBox>
+
+        <Button Name="btnTamam" Grid.Column="0" Grid.Row="6" Click="btnTamam_Click" FontSize="14">Giriş</Button>
+
+        <Button Name="btnIptal" Grid.Column="1" Grid.Row="6" Click="btnIptal_Click" FontSize="14">İptal</Button>
+
+        <Label Name="lblUyariBos" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2" FontWeight="Bold" Foreground="#FF050000" HorizontalContentAlignment="Center"></Label>
+
+        <Label Name="lblUyari" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" FontWeight="Bold" Foreground="#FF050000" HorizontalContentAlignment="Center">© Bilgi İşlem Dairesi Başkanlığı</Label>
+    </Grid>
+</Window>

@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataViewer", "MetadataViewer\MetadataViewer.csproj", "{8D2361AB-0DFE-474A-A42E-B53C2A1E8A2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfAnnotation", "WcfAnnotation\WcfAnnotation.csproj", "{7C87699B-183A-4F66-B93A-C747F1C6F8F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestServer", "TestServer\TestServer.csproj", "{D0DC89B8-6092-4EAD-8296-6B7644E3789F}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://172.20.40.66:8080/tfs/projectcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MetadataViewer\\MetadataViewer.csproj
+		SccProjectName1 = MetadataViewer
+		SccLocalPath1 = MetadataViewer
+		SccProjectUniqueName2 = TestServer\\TestServer.csproj
+		SccProjectName2 = TestServer
+		SccLocalPath2 = TestServer
+		SccProjectUniqueName3 = WcfAnnotation\\WcfAnnotation.csproj
+		SccProjectName3 = WcfAnnotation
+		SccLocalPath3 = WcfAnnotation
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D2361AB-0DFE-474A-A42E-B53C2A1E8A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D2361AB-0DFE-474A-A42E-B53C2A1E8A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D2361AB-0DFE-474A-A42E-B53C2A1E8A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D2361AB-0DFE-474A-A42E-B53C2A1E8A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C87699B-183A-4F66-B93A-C747F1C6F8F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C87699B-183A-4F66-B93A-C747F1C6F8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C87699B-183A-4F66-B93A-C747F1C6F8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C87699B-183A-4F66-B93A-C747F1C6F8F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DC89B8-6092-4EAD-8296-6B7644E3789F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DC89B8-6092-4EAD-8296-6B7644E3789F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DC89B8-6092-4EAD-8296-6B7644E3789F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DC89B8-6092-4EAD-8296-6B7644E3789F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

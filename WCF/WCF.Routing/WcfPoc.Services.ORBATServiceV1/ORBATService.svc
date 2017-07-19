@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WcfPoc.Services.ORBATServiceV1.TestService" CodeBehind="ORBATService.svc.cs" %>

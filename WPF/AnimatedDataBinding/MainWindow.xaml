@@ -1,0 +1,15 @@
+﻿<Window x:Class="EmployeeDesignation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="237*" />
+            <ColumnDefinition Width="266*" />
+        </Grid.ColumnDefinitions>
+        <Button Content="Atama Yap" Height="32" HorizontalAlignment="Left" Margin="127,12,0,0" Name="buttonAtamaYap" VerticalAlignment="Top" Width="97" Click="buttonAtamaYap_Click" Grid.Column="1" />
+        <ListBox Height="229" HorizontalAlignment="Left" Margin="26,50,0,0" Name="listBox1" VerticalAlignment="Top" Width="444" Grid.ColumnSpan="2" />
+        <ComboBox Height="28" HorizontalAlignment="Right" Margin="0,16,261,0" Name="comboBoxAlimlar" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" ItemsSource="{Binding}" DataContext="{Binding}" SelectedValuePath="ALIMNO" DisplayMemberPath="DONEM" SelectedIndex="0" />
+        <Label Content="Personel Alımı:" Height="28" HorizontalAlignment="Left" Margin="26,16,0,0" Name="label1" VerticalAlignment="Top" Width="95" FontWeight="Bold" />
+    </Grid>
+</Window>

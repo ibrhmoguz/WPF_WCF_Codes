@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<KonteynerYerDegistir xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GelisGidisBildirimNo>13343100VB0000000014</GelisGidisBildirimNo>
+  <KonteynerNo>ADMU4961063</KonteynerNo>
+  <BulunduguYer>testBulunduguYeer</BulunduguYer>
+</KonteynerYerDegistir>

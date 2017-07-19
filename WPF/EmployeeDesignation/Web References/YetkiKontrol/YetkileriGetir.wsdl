@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ABC.gov.tr/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ABC.gov.tr/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ABC.gov.tr/">
+      <s:element name="KullaniciYetkileri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="memurMu" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkileriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciYetkileriResult" type="tns:Yetki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Yetki">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ds">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdSoyad" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KullaniciYetkileriveKimlikBilgileri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="memurMu" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkileriveKimlikBilgileriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciYetkileriveKimlikBilgileriResult" type="tns:Yetki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EBelgeKullanici">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="memurMu" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EBelgeKullaniciResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EBelgeKullaniciResult" type="tns:Yetki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TCGBKullanici">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="memurMu" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TCGBKullaniciResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TCGBKullaniciResult" type="tns:Yetki" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullanicininYetkileri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sicil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="memurMu" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="projeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullanicininYetkileriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullanicininYetkileriResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProfilId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="KimlikNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdSoyad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sicil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Yetki" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Authenticated" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Authrized" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ABC" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KullaniciYetkileriDataSetXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="memurMu" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkileriDataSetXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciYetkileriDataSetXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkileriArray">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tcno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="memurMu" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkileriArrayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciYetkileriArrayResult" type="tns:ArrayOfYetkiler" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfYetkiler">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Yetkiler" nillable="true" type="tns:Yetkiler" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Yetkiler">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirmaNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProfilId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cpfl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProfilAciklama" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProfilAd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cbur" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tcno" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getMd5Hash">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="input" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getMd5HashResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getMd5HashResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="KullaniciYetkileriSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkileri" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkileriSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkileriResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkileriveKimlikBilgileriSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkileriveKimlikBilgileri" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkileriveKimlikBilgileriSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkileriveKimlikBilgileriResponse" />
+  </wsdl:message>
+  <wsdl:message name="EBelgeKullaniciSoapIn">
+    <wsdl:part name="parameters" element="tns:EBelgeKullanici" />
+  </wsdl:message>
+  <wsdl:message name="EBelgeKullaniciSoapOut">
+    <wsdl:part name="parameters" element="tns:EBelgeKullaniciResponse" />
+  </wsdl:message>
+  <wsdl:message name="TCGBKullaniciSoapIn">
+    <wsdl:part name="parameters" element="tns:TCGBKullanici" />
+  </wsdl:message>
+  <wsdl:message name="TCGBKullaniciSoapOut">
+    <wsdl:part name="parameters" element="tns:TCGBKullaniciResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullanicininYetkileriSoapIn">
+    <wsdl:part name="parameters" element="tns:KullanicininYetkileri" />
+  </wsdl:message>
+  <wsdl:message name="KullanicininYetkileriSoapOut">
+    <wsdl:part name="parameters" element="tns:KullanicininYetkileriResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkileriDataSetXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkileriDataSetXML" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkileriDataSetXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkileriDataSetXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkileriArraySoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkileriArray" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkileriArraySoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkileriArrayResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMd5HashSoapIn">
+    <wsdl:part name="parameters" element="tns:getMd5Hash" />
+  </wsdl:message>
+  <wsdl:message name="getMd5HashSoapOut">
+    <wsdl:part name="parameters" element="tns:getMd5HashResponse" />
+  </wsdl:message>
+  <wsdl:portType name="YetkileriGetirSoap">
+    <wsdl:operation name="KullaniciYetkileri">
+      <wsdl:input message="tns:KullaniciYetkileriSoapIn" />
+      <wsdl:output message="tns:KullaniciYetkileriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriveKimlikBilgileri">
+      <wsdl:input message="tns:KullaniciYetkileriveKimlikBilgileriSoapIn" />
+      <wsdl:output message="tns:KullaniciYetkileriveKimlikBilgileriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EBelgeKullanici">
+      <wsdl:input message="tns:EBelgeKullaniciSoapIn" />
+      <wsdl:output message="tns:EBelgeKullaniciSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TCGBKullanici">
+      <wsdl:input message="tns:TCGBKullaniciSoapIn" />
+      <wsdl:output message="tns:TCGBKullaniciSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullanicininYetkileri">
+      <wsdl:input message="tns:KullanicininYetkileriSoapIn" />
+      <wsdl:output message="tns:KullanicininYetkileriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriDataSetXML">
+      <wsdl:input message="tns:KullaniciYetkileriDataSetXMLSoapIn" />
+      <wsdl:output message="tns:KullaniciYetkileriDataSetXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriArray">
+      <wsdl:input message="tns:KullaniciYetkileriArraySoapIn" />
+      <wsdl:output message="tns:KullaniciYetkileriArraySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMd5Hash">
+      <wsdl:input message="tns:getMd5HashSoapIn" />
+      <wsdl:output message="tns:getMd5HashSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="YetkileriGetirSoap" type="tns:YetkileriGetirSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KullaniciYetkileri">
+      <soap:operation soapAction="http://ABC.gov.tr/KullaniciYetkileri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriveKimlikBilgileri">
+      <soap:operation soapAction="http://ABC.gov.tr/KullaniciYetkileriveKimlikBilgileri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EBelgeKullanici">
+      <soap:operation soapAction="http://ABC.gov.tr/EBelgeKullanici" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TCGBKullanici">
+      <soap:operation soapAction="http://ABC.gov.tr/TCGBKullanici" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullanicininYetkileri">
+      <soap:operation soapAction="http://ABC.gov.tr/KullanicininYetkileri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriDataSetXML">
+      <soap:operation soapAction="http://ABC.gov.tr/KullaniciYetkileriDataSetXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriArray">
+      <soap:operation soapAction="http://ABC.gov.tr/KullaniciYetkileriArray" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMd5Hash">
+      <soap:operation soapAction="http://ABC.gov.tr/getMd5Hash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="YetkileriGetirSoap12" type="tns:YetkileriGetirSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KullaniciYetkileri">
+      <soap12:operation soapAction="http://ABC.gov.tr/KullaniciYetkileri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriveKimlikBilgileri">
+      <soap12:operation soapAction="http://ABC.gov.tr/KullaniciYetkileriveKimlikBilgileri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EBelgeKullanici">
+      <soap12:operation soapAction="http://ABC.gov.tr/EBelgeKullanici" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TCGBKullanici">
+      <soap12:operation soapAction="http://ABC.gov.tr/TCGBKullanici" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullanicininYetkileri">
+      <soap12:operation soapAction="http://ABC.gov.tr/KullanicininYetkileri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriDataSetXML">
+      <soap12:operation soapAction="http://ABC.gov.tr/KullaniciYetkileriDataSetXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkileriArray">
+      <soap12:operation soapAction="http://ABC.gov.tr/KullaniciYetkileriArray" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMd5Hash">
+      <soap12:operation soapAction="http://ABC.gov.tr/getMd5Hash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="YetkileriGetir">
+    <wsdl:port name="YetkileriGetirSoap" binding="tns:YetkileriGetirSoap">
+      <soap:address location="http://webservice.ABC.gov.tr/Yetki_Kontrol/YetkileriGetir.asmx" />
+    </wsdl:port>
+    <wsdl:port name="YetkileriGetirSoap12" binding="tns:YetkileriGetirSoap12">
+      <soap12:address location="http://webservice.ABC.gov.tr/Yetki_Kontrol/YetkileriGetir.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

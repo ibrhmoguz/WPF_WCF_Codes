@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Customs.Services.ETradeWebService.ETicaretServis" CodeBehind="ETicaretServis.svc.cs" %>

@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="UDDIService.Service1" CodeBehind="UDDIService.svc.cs" %>

@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NorthwindOpsService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+      <xs:element name="SuppliersByCountry">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pCountry" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SuppliersByCountryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" minOccurs="0" name="SuppliersByCountryResult" nillable="true" type="q1:ArrayOfSuppliers" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OrdersByCustomer">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pCountry" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OrdersByCustomerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" minOccurs="0" name="OrdersByCustomerResult" nillable="true" type="q2:ArrayOfOrders" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CategoryList">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CategoryListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" minOccurs="0" name="CategoryListResult" nillable="true" type="q3:ArrayOfCategories" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ProductsByCategory">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pCategoryID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ProductsByCategoryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" minOccurs="0" name="ProductsByCategoryResult" nillable="true" type="q4:ArrayOfProducts" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+      <xs:complexType name="ArrayOfSuppliers">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Suppliers" nillable="true" type="tns:Suppliers" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSuppliers" nillable="true" type="tns:ArrayOfSuppliers" />
+      <xs:complexType name="Suppliers">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ContactTitle" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="HomePage" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProducts" />
+              <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="SupplierID" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Suppliers" nillable="true" type="tns:Suppliers" />
+      <xs:complexType name="ArrayOfProducts">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Products" nillable="true" type="tns:Products" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfProducts" nillable="true" type="tns:ArrayOfProducts" />
+      <xs:complexType name="Products">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q2:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Categories" nillable="true" type="tns:Categories" />
+              <xs:element minOccurs="0" name="CategoriesReference" nillable="true" type="q2:EntityReferenceOfCategories_PtWoL0jC" />
+              <xs:element minOccurs="0" name="CategoryID" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="Discontinued" type="xs:boolean" />
+              <xs:element minOccurs="0" name="Order_Details" nillable="true" type="tns:ArrayOfOrder_Details" />
+              <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+              <xs:element minOccurs="0" name="ProductName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="QuantityPerUnit" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ReorderLevel" nillable="true" type="xs:short" />
+              <xs:element minOccurs="0" name="SupplierID" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="Suppliers" nillable="true" type="tns:Suppliers" />
+              <xs:element minOccurs="0" name="SuppliersReference" nillable="true" type="q2:EntityReferenceOfSuppliers_PtWoL0jC" />
+              <xs:element minOccurs="0" name="UnitPrice" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="UnitsInStock" nillable="true" type="xs:short" />
+              <xs:element minOccurs="0" name="UnitsOnOrder" nillable="true" type="xs:short" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Products" nillable="true" type="tns:Products" />
+      <xs:complexType name="Categories">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q3:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+              <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Picture" nillable="true" type="xs:base64Binary" />
+              <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfProducts" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Categories" nillable="true" type="tns:Categories" />
+      <xs:complexType name="ArrayOfOrder_Details">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Order_Details" nillable="true" type="tns:Order_Details" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfOrder_Details" nillable="true" type="tns:ArrayOfOrder_Details" />
+      <xs:complexType name="Order_Details">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q4:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Discount" type="xs:float" />
+              <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+              <xs:element minOccurs="0" name="Orders" nillable="true" type="tns:Orders" />
+              <xs:element minOccurs="0" name="OrdersReference" nillable="true" type="q4:EntityReferenceOfOrders_PtWoL0jC" />
+              <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+              <xs:element minOccurs="0" name="Products" nillable="true" type="tns:Products" />
+              <xs:element minOccurs="0" name="ProductsReference" nillable="true" type="q4:EntityReferenceOfProducts_PtWoL0jC" />
+              <xs:element minOccurs="0" name="Quantity" type="xs:short" />
+              <xs:element minOccurs="0" name="UnitPrice" type="xs:decimal" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Order_Details" nillable="true" type="tns:Order_Details" />
+      <xs:complexType name="Orders">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q5:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:Customers" />
+              <xs:element minOccurs="0" name="CustomersReference" nillable="true" type="q5:EntityReferenceOfCustomers_PtWoL0jC" />
+              <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="Employees" nillable="true" type="tns:Employees" />
+              <xs:element minOccurs="0" name="EmployeesReference" nillable="true" type="q5:EntityReferenceOfEmployees_PtWoL0jC" />
+              <xs:element minOccurs="0" name="Freight" nillable="true" type="xs:decimal" />
+              <xs:element minOccurs="0" name="OrderDate" nillable="true" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="OrderID" type="xs:int" />
+              <xs:element minOccurs="0" name="Order_Details" nillable="true" type="tns:ArrayOfOrder_Details" />
+              <xs:element minOccurs="0" name="RequiredDate" nillable="true" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="ShipAddress" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ShipCity" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ShipCountry" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ShipName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ShipPostalCode" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ShipRegion" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ShipVia" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="ShippedDate" nillable="true" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="Shippers" nillable="true" type="tns:Shippers" />
+              <xs:element minOccurs="0" name="ShippersReference" nillable="true" type="q5:EntityReferenceOfShippers_PtWoL0jC" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Orders" nillable="true" type="tns:Orders" />
+      <xs:complexType name="Customers">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q6:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ContactName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ContactTitle" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="CustomerDemographics" nillable="true" type="tns:ArrayOfCustomerDemographics" />
+              <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Fax" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Orders" nillable="true" type="tns:ArrayOfOrders" />
+              <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Customers" nillable="true" type="tns:Customers" />
+      <xs:complexType name="ArrayOfCustomerDemographics">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerDemographics" nillable="true" type="tns:CustomerDemographics" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCustomerDemographics" nillable="true" type="tns:ArrayOfCustomerDemographics" />
+      <xs:complexType name="CustomerDemographics">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q7:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="CustomerDesc" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="CustomerTypeID" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:ArrayOfCustomers" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="CustomerDemographics" nillable="true" type="tns:CustomerDemographics" />
+      <xs:complexType name="ArrayOfCustomers">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Customers" nillable="true" type="tns:Customers" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCustomers" nillable="true" type="tns:ArrayOfCustomers" />
+      <xs:complexType name="ArrayOfOrders">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Orders" nillable="true" type="tns:Orders" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfOrders" nillable="true" type="tns:ArrayOfOrders" />
+      <xs:complexType name="Employees">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q8:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="BirthDate" nillable="true" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="EmployeeID" type="xs:int" />
+              <xs:element minOccurs="0" name="Employees1" nillable="true" type="tns:ArrayOfEmployees" />
+              <xs:element minOccurs="0" name="Employees2" nillable="true" type="tns:Employees" />
+              <xs:element minOccurs="0" name="Employees2Reference" nillable="true" type="q8:EntityReferenceOfEmployees_PtWoL0jC" />
+              <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="HireDate" nillable="true" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="HomePhone" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Orders" nillable="true" type="tns:ArrayOfOrders" />
+              <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:base64Binary" />
+              <xs:element minOccurs="0" name="PhotoPath" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ReportsTo" nillable="true" type="xs:int" />
+              <xs:element minOccurs="0" name="Territories" nillable="true" type="tns:ArrayOfTerritories" />
+              <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="TitleOfCourtesy" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Employees" nillable="true" type="tns:Employees" />
+      <xs:complexType name="ArrayOfEmployees">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Employees" nillable="true" type="tns:Employees" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfEmployees" nillable="true" type="tns:ArrayOfEmployees" />
+      <xs:complexType name="ArrayOfTerritories">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Territories" nillable="true" type="tns:Territories" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTerritories" nillable="true" type="tns:ArrayOfTerritories" />
+      <xs:complexType name="Territories">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q9:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Employees" nillable="true" type="tns:ArrayOfEmployees" />
+              <xs:element minOccurs="0" name="Region" nillable="true" type="tns:Region" />
+              <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+              <xs:element minOccurs="0" name="RegionReference" nillable="true" type="q9:EntityReferenceOfRegion_PtWoL0jC" />
+              <xs:element minOccurs="0" name="TerritoryDescription" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="TerritoryID" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Territories" nillable="true" type="tns:Territories" />
+      <xs:complexType name="Region">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q10:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="RegionDescription" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="RegionID" type="xs:int" />
+              <xs:element minOccurs="0" name="Territories" nillable="true" type="tns:ArrayOfTerritories" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Region" nillable="true" type="tns:Region" />
+      <xs:complexType name="Shippers">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q11:EntityObject">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="Orders" nillable="true" type="tns:ArrayOfOrders" />
+              <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ShipperID" type="xs:int" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="Shippers" nillable="true" type="tns:Shippers" />
+      <xs:complexType name="ArrayOfCategories">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Categories" nillable="true" type="tns:Categories" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCategories" nillable="true" type="tns:ArrayOfCategories" />
+    </xs:schema>
+    <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="EntityObject">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:StructuralObject">
+            <xs:sequence>
+              <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q1:EntityKey" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityObject" nillable="true" type="tns:EntityObject" />
+      <xs:complexType name="StructuralObject">
+        <xs:sequence />
+        <xs:attribute ref="ser:Id" />
+        <xs:attribute ref="ser:Ref" />
+      </xs:complexType>
+      <xs:element name="StructuralObject" nillable="true" type="tns:StructuralObject" />
+      <xs:complexType name="EntityReferenceOfCategories_PtWoL0jC">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Categories" Namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:EntityReference">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReferenceOfCategories_PtWoL0jC" nillable="true" type="tns:EntityReferenceOfCategories_PtWoL0jC" />
+      <xs:complexType name="EntityReference">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:RelatedEnd">
+            <xs:sequence>
+              <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Data" minOccurs="0" name="EntityKey" nillable="true" type="q2:EntityKey" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReference" nillable="true" type="tns:EntityReference" />
+      <xs:complexType name="RelatedEnd">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:element name="RelatedEnd" nillable="true" type="tns:RelatedEnd" />
+      <xs:complexType name="EntityReferenceOfCustomers_PtWoL0jC">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Customers" Namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:EntityReference">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReferenceOfCustomers_PtWoL0jC" nillable="true" type="tns:EntityReferenceOfCustomers_PtWoL0jC" />
+      <xs:complexType name="EntityReferenceOfEmployees_PtWoL0jC">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Employees" Namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:EntityReference">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReferenceOfEmployees_PtWoL0jC" nillable="true" type="tns:EntityReferenceOfEmployees_PtWoL0jC" />
+      <xs:complexType name="EntityReferenceOfRegion_PtWoL0jC">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Region" Namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:EntityReference">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReferenceOfRegion_PtWoL0jC" nillable="true" type="tns:EntityReferenceOfRegion_PtWoL0jC" />
+      <xs:complexType name="EntityReferenceOfShippers_PtWoL0jC">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Shippers" Namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:EntityReference">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReferenceOfShippers_PtWoL0jC" nillable="true" type="tns:EntityReferenceOfShippers_PtWoL0jC" />
+      <xs:complexType name="EntityReferenceOfOrders_PtWoL0jC">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Orders" Namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:EntityReference">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReferenceOfOrders_PtWoL0jC" nillable="true" type="tns:EntityReferenceOfOrders_PtWoL0jC" />
+      <xs:complexType name="EntityReferenceOfProducts_PtWoL0jC">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Products" Namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:EntityReference">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReferenceOfProducts_PtWoL0jC" nillable="true" type="tns:EntityReferenceOfProducts_PtWoL0jC" />
+      <xs:complexType name="EntityReferenceOfSuppliers_PtWoL0jC">
+        <xs:annotation>
+          <xs:appinfo>
+            <GenericType Name="EntityReferenceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+              <GenericParameter Name="Suppliers" Namespace="http://schemas.datacontract.org/2004/07/NorthwindOps.Types" />
+            </GenericType>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:EntityReference">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="EntityReferenceOfSuppliers_PtWoL0jC" nillable="true" type="tns:EntityReferenceOfSuppliers_PtWoL0jC" />
+    </xs:schema>
+    <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:complexType name="EntityKey">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EntityContainerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EntityKeyValues" nillable="true" type="tns:ArrayOfEntityKeyMember" />
+          <xs:element minOccurs="0" name="EntitySetName" nillable="true" type="xs:string" />
+        </xs:sequence>
+        <xs:attribute ref="ser:Id" />
+        <xs:attribute ref="ser:Ref" />
+      </xs:complexType>
+      <xs:element name="EntityKey" nillable="true" type="tns:EntityKey" />
+      <xs:complexType name="ArrayOfEntityKeyMember">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfEntityKeyMember" nillable="true" type="tns:ArrayOfEntityKeyMember" />
+      <xs:complexType name="EntityKeyMember">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="INorthwindOpsService_SuppliersByCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:SuppliersByCountry" />
+  </wsdl:message>
+  <wsdl:message name="INorthwindOpsService_SuppliersByCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SuppliersByCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwindOpsService_OrdersByCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:OrdersByCustomer" />
+  </wsdl:message>
+  <wsdl:message name="INorthwindOpsService_OrdersByCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OrdersByCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwindOpsService_CategoryList_InputMessage">
+    <wsdl:part name="parameters" element="tns:CategoryList" />
+  </wsdl:message>
+  <wsdl:message name="INorthwindOpsService_CategoryList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CategoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="INorthwindOpsService_ProductsByCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProductsByCategory" />
+  </wsdl:message>
+  <wsdl:message name="INorthwindOpsService_ProductsByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProductsByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INorthwindOpsService">
+    <wsdl:operation name="SuppliersByCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/INorthwindOpsService/SuppliersByCountry" message="tns:INorthwindOpsService_SuppliersByCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INorthwindOpsService/SuppliersByCountryResponse" message="tns:INorthwindOpsService_SuppliersByCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OrdersByCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/INorthwindOpsService/OrdersByCustomer" message="tns:INorthwindOpsService_OrdersByCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INorthwindOpsService/OrdersByCustomerResponse" message="tns:INorthwindOpsService_OrdersByCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoryList">
+      <wsdl:input wsaw:Action="http://tempuri.org/INorthwindOpsService/CategoryList" message="tns:INorthwindOpsService_CategoryList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INorthwindOpsService/CategoryListResponse" message="tns:INorthwindOpsService_CategoryList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductsByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/INorthwindOpsService/ProductsByCategory" message="tns:INorthwindOpsService_ProductsByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INorthwindOpsService/ProductsByCategoryResponse" message="tns:INorthwindOpsService_ProductsByCategory_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_INorthwindOpsService" type="tns:INorthwindOpsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SuppliersByCountry">
+      <soap:operation soapAction="http://tempuri.org/INorthwindOpsService/SuppliersByCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrdersByCustomer">
+      <soap:operation soapAction="http://tempuri.org/INorthwindOpsService/OrdersByCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoryList">
+      <soap:operation soapAction="http://tempuri.org/INorthwindOpsService/CategoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductsByCategory">
+      <soap:operation soapAction="http://tempuri.org/INorthwindOpsService/ProductsByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NorthwindOpsService">
+    <wsdl:port name="BasicHttpBinding_INorthwindOpsService" binding="tns:BasicHttpBinding_INorthwindOpsService">
+      <soap:address location="http://win-m787sm1t5sq/NorthwindOps/NorthwindOpsService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Data;
+using ABCWeb.Business.PersonelAlim;
+
+namespace EmployeeDesignation
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+            this.Loaded += new RoutedEventHandler(MainWindow_Loaded);
+        }
+
+        void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            AtamaYapilacakAlimlariGetir();
+        }
+
+        private void AtamaYapilacakAlimlariGetir()
+        {
+            DataTable dt = new BasvuruAlimBS().AtamaYapilacakAlimListele();
+            comboBoxAlimlar.DataContext = dt;
+        }
+
+        private void buttonAtamaYap_Click(object sender, RoutedEventArgs e)
+        {
+            AtamaYap();
+        }
+
+        private void AtamaYap()
+        {
+            
+        }
+    }
+}

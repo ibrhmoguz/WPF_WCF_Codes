@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<s:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+	<s:element name="TCGB">
+		<s:complexType>
+			<s:sequence>
+				<s:element minOccurs="0" maxOccurs="1" name="guncellenecekTCGBGeciciTescilNo" type="s:string" />
+				<s:element minOccurs="0" maxOccurs="1" name="beyan" type="tns:Beyan" />
+				<s:element minOccurs="1" maxOccurs="1" name="kalemSayisi" type="s:int" />
+				<s:element minOccurs="1" maxOccurs="1" name="toplamKapAdedi" type="s:int" />
+				<s:element minOccurs="0" maxOccurs="1" name="referansNumarasi" type="s:string" />
+
+				<s:element minOccurs="0" maxOccurs="1" name="beyanSahibiTemsilci" type="tns:beyanSahibiTemsilci" />
+				<s:element minOccurs="0" maxOccurs="1" name="cikistakiAracBilgileri" type="tns:ArrayOfArac" />
+				<s:element minOccurs="1" maxOccurs="1" name="konteyner" type="s:boolean" />
+				<s:element minOccurs="0" maxOccurs="1" name="siniriGecenHareketliTasimaAraclari" type="tns:ArrayOfArac" />
+				<s:element minOccurs="0" maxOccurs="1" name="dovizVeToplamFaturaBedeliBilgileri" type="tns:DovizVeToplamFaturaBedeliBilgileri" />
+				<s:element minOccurs="1" maxOccurs="1" name="istatistikiKiymet" type="s:decimal" />
+				<s:element minOccurs="0" maxOccurs="1" name="toplamHarcamalar" type="tns:toplamHarcamalar" />
+				<s:element minOccurs="0" maxOccurs="1" name="dahiliTasimaSekliKodu" type="s:string" />
+				<s:element minOccurs="0" maxOccurs="1" name="yuklemeBosaltmaYeri" type="s:string" />
+
+				<s:element minOccurs="0" maxOccurs="1" name="girisCikisABCIdaresiKodu" type="s:string" />
+				<s:element minOccurs="0" maxOccurs="1" name="esyaninBulunduguYer" type="tns:esyaninBulunduguYer" />
+				<s:element minOccurs="0" maxOccurs="1" name="ayarlama" type="s:string" />
+				<s:element minOccurs="0" maxOccurs="1" name="antreponunTipiKodu" type="s:string" />
+				<s:element minOccurs="0" maxOccurs="1" name="asilSorumlu" type="tns:asilSorumlu" />
+				<s:element minOccurs="0" maxOccurs="1" name="ongorulenABCIdareleriVeUlke" type="tns:ArrayOfABC" />
+				<s:element minOccurs="0" maxOccurs="1" name="toplamTeminatlar" type="tns:ArrayOfTcgbTeminat" />
+				<s:element minOccurs="0" maxOccurs="1" name="varisABCIdaresi" type="s:string" />
+				<s:element minOccurs="0" maxOccurs="1" name="aktarmalar" type="tns:ArrayOfAktarma" />
+
+				<s:element minOccurs="0" maxOccurs="1" name="aciklamalar" type="s:string" />
+				<s:element minOccurs="0" maxOccurs="1" name="tasimaSenetleri" type="tns:ArrayOfTasimaSenedi" />
+			</s:sequence>
+		</s:complexType>
+	</s:element>
+	<s:complexType name="Beyan">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="beyan1" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="beyan2" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="beyan3" type="s:string" />
+
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="beyanSahibiTemsilci">
+		<s:complexContent mixed="false">
+			<s:extension base="tns:Kisi" />
+		</s:complexContent>
+	</s:complexType>
+	<s:complexType name="Kisi">
+		<s:sequence>
+
+			<s:element minOccurs="0" maxOccurs="1" name="adiUnvani" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="vergiTCNo" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="AliciKisi">
+		<s:sequence>
+
+			<s:element minOccurs="0" maxOccurs="1" name="adi" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="unvani" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="vergiTCNo" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="caddeSokakNo" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="ilKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="ilce" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="postaKodu" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="asilSorumlu">
+		<s:complexContent mixed="false">
+			<s:extension base="tns:Kisi" />
+		</s:complexContent>
+	</s:complexType>
+
+	<s:complexType name="ArrayOfArac">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="arac" nillable="true" type="tns:arac" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="arac">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="tipi" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="numarasi" type="s:string" />
+
+			<s:element minOccurs="0" maxOccurs="1" name="ulke" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="DovizVeToplamFaturaBedeliBilgileri">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="faturaBedeliBilgisi" type="tns:FaturaBedeliBilgisi" />
+			<s:element minOccurs="1" maxOccurs="1" name="faturaBedeliBilgisiTurkLirasi" type="s:decimal" />
+		</s:sequence>
+	</s:complexType>
+
+	<s:complexType name="FaturaBedeliBilgisi">
+		<s:complexContent mixed="false">
+			<s:extension base="tns:bedel">
+				<s:sequence>
+					<s:element minOccurs="1" maxOccurs="1" name="dovizKuru" type="s:decimal" />
+				</s:sequence>
+			</s:extension>
+		</s:complexContent>
+	</s:complexType>
+
+	<s:complexType name="bedel">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="dovizTuru" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="bedeli" type="s:decimal" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="DovizVeFaturaBedeli">
+		<s:complexContent mixed="false">
+			<s:extension base="tns:bedel" />
+
+		</s:complexContent>
+	</s:complexType>
+	<s:complexType name="digerYurtDisiHarcama">
+		<s:complexContent mixed="false">
+			<s:extension base="tns:bedel" />
+		</s:complexContent>
+	</s:complexType>
+	<s:complexType name="sigorta">
+		<s:complexContent mixed="false">
+
+			<s:extension base="tns:bedel" />
+		</s:complexContent>
+	</s:complexType>
+	<s:complexType name="navlun">
+		<s:complexContent mixed="false">
+			<s:extension base="tns:bedel" />
+		</s:complexContent>
+	</s:complexType>
+	<s:complexType name="toplamHarcamalar">
+
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="navlunBilgileri" type="tns:navlun" />
+			<s:element minOccurs="0" maxOccurs="1" name="sigortaBilgileri" type="tns:sigorta" />
+			<s:element minOccurs="0" maxOccurs="1" name="digerYurtDisiHarcamaBilgileri" type="tns:digerYurtDisiHarcama" />
+			<s:element minOccurs="1" maxOccurs="1" name="yurtIciHarcamalar" type="s:decimal" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="esyaninBulunduguYer">
+		<s:complexContent mixed="false">
+
+			<s:extension base="tns:yer" />
+		</s:complexContent>
+	</s:complexType>
+	<s:complexType name="yer">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="yerKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="yerAdi" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+
+	<s:complexType name="ArrayOfABC">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="ABC" nillable="true" type="tns:ABC" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ABC">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="ABCKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="ulkesi" type="s:string" />
+
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfTcgbTeminat">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="tcgbTeminat" nillable="true" type="tns:tcgbTeminat" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="tcgbTeminat">
+		<s:complexContent mixed="false">
+
+			<s:extension base="tns:TurTutar" />
+		</s:complexContent>
+	</s:complexType>
+	<s:complexType name="TurTutar">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="turu" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="tutari" type="s:decimal" />
+		</s:sequence>
+	</s:complexType>
+
+	<s:complexType name="tasimaSenediTeminat">
+		<s:complexContent mixed="false">
+			<s:extension base="tns:TurTutar">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="referansNo" type="s:string" />
+				</s:sequence>
+			</s:extension>
+		</s:complexContent>
+	</s:complexType>
+
+	<s:complexType name="ArrayOfAktarma">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="aktarma" nillable="true" type="tns:aktarma" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="aktarma">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="aktarmaUlkesi" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="aktarmaYeri" type="s:string" />
+
+			<s:element minOccurs="0" maxOccurs="1" name="yeniTasitAraciBilgileri" type="tns:tcgbAktarmaArac" />
+			<s:element minOccurs="1" maxOccurs="1" name="konteyner" type="s:boolean" />
+			<s:element minOccurs="0" maxOccurs="1" name="oncekiKonteynerNo" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="yeniKonteynerNo" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="tcgbAktarmaArac">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="aracReferansNumarasi" type="s:string" />
+
+			<s:element minOccurs="0" maxOccurs="1" name="ulkesi" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfTasimaSenedi">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="tasimaSenedi" nillable="true" type="tns:tasimaSenedi" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="tasimaSenedi">
+
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="tasimaSenediSiraNo" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="TasimaSenediNumarasi" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="kaplar" type="tns:ArrayOfKapBilgisi" />
+			<s:element minOccurs="0" maxOccurs="1" name="konteynerler" type="tns:ArrayOfKonteynerBilgisi" />
+			<s:element minOccurs="1" maxOccurs="1" name="brutAgirlik" type="s:decimal" />
+			<s:element minOccurs="1" maxOccurs="1" name="netAgirlik" type="s:decimal" />
+			<s:element minOccurs="0" maxOccurs="1" name="gondericiIhracatci" type="tns:Kisi" />
+			<s:element minOccurs="0" maxOccurs="1" name="alici" type="tns:AliciKisi" />
+			<s:element minOccurs="0" maxOccurs="1" name="maliMusavirSm" type="tns:Kisi" />
+			<s:element minOccurs="0" maxOccurs="1" name="sevkGidecegiUlkeKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="ticaretYapilanUlkeKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="cikisIhracatUlkesiKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="gidecegiUlkeKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="teslimSekliBilgileri" type="tns:TeslimSekli" />
+			<s:element minOccurs="0" maxOccurs="1" name="isleminNiteligi" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="muafiyetler" type="tns:ArrayOfMuafiyet" />
+			<s:element minOccurs="0" maxOccurs="1" name="rejimKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="belgeler" type="tns:ArrayOfBelge" />
+			<s:element minOccurs="0" maxOccurs="1" name="finansalVeBankacilikVerileri" type="tns:ArrayOfFinansBanka" />
+			<s:element minOccurs="0" maxOccurs="1" name="dovizVeToplamFaturaBedeliBilgileriTs" type="tns:ArrayOfFaturaBedeliBilgisi" />
+			<s:element minOccurs="0" maxOccurs="1" name="vergiler" type="tns:ArrayOfVergi" />
+			<s:element minOccurs="0" maxOccurs="1" name="vergiOdemesi" type="tns:VergiOdemesi" />
+			<s:element minOccurs="0" maxOccurs="1" name="teminatlar" type="tns:ArrayOfTasimaSenediTeminat" />
+			<s:element minOccurs="0" maxOccurs="1" name="harcamalar" type="tns:toplamHarcamalar" />
+			<s:element minOccurs="0" maxOccurs="1" name="kalemler" type="tns:ArrayOfKalem" />
+
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfKapBilgisi">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="kapBilgisi" nillable="true" type="tns:kapBilgisi" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="kapBilgisi">
+		<s:sequence>
+
+			<s:element minOccurs="0" maxOccurs="1" name="turu" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="adedi" type="s:int" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfKonteynerBilgisi">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="konteynerBilgisi" nillable="true" type="tns:konteynerBilgisi" />
+		</s:sequence>
+	</s:complexType>
+
+	<s:complexType name="konteynerBilgisi">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="konteynerMarkasi" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="konteynerNo" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="kapBilgileri" type="tns:ArrayOfKapBilgisi" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="TeslimSekli">
+		<s:sequence>
+
+			<s:element minOccurs="0" maxOccurs="1" name="teslimSekli" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="teslimYeri" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfMuafiyet">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="muafiyet" nillable="true" type="tns:muafiyet" />
+		</s:sequence>
+	</s:complexType>
+
+	<s:complexType name="muafiyet">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="muafiyetKodu" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfBelge">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="Belge" nillable="true" type="tns:Belge" />
+		</s:sequence>
+
+	</s:complexType>
+	<s:complexType name="Belge">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="kodu" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="belgeTarihi" type="s:dateTime" />
+			<s:element minOccurs="0" maxOccurs="1" name="referansNo" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="dogrulama" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+
+	<s:complexType name="ArrayOfFinansBanka">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="FinansBanka" nillable="true" type="tns:FinansBanka" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="FinansBanka">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="bankaKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="odemeSekli" type="s:string" />
+
+			<s:element minOccurs="1" maxOccurs="1" name="tutar" type="s:decimal" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfFaturaBedeliBilgisi">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="FaturaBedeliBilgisi" nillable="true" type="tns:FaturaBedeliBilgisi" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfVergi">
+
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="vergi" nillable="true" type="tns:vergi" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="vergi">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="kodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="tanimi" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="matrahi" type="s:decimal" />
+
+			<s:element minOccurs="1" maxOccurs="1" name="orani" type="s:decimal" />
+			<s:element minOccurs="1" maxOccurs="1" name="tutari" type="s:decimal" />
+			<s:element minOccurs="0" maxOccurs="1" name="odemeSekli" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="VergiOdemesi">
+		<s:sequence>
+			<s:element minOccurs="1" maxOccurs="1" name="odenecekVergiTutariToplami" type="s:decimal" />
+			<s:element minOccurs="1" maxOccurs="1" name="teminataBaglanacakVergiTutari" type="s:decimal" />
+
+			<s:element minOccurs="1" maxOccurs="1" name="sonraOdenecekVergiTutariToplami" type="s:decimal" />
+			<s:element minOccurs="1" maxOccurs="1" name="toplam" type="s:decimal" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfTasimaSenediTeminat">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="tasimaSenediTeminat" nillable="true" type="tns:tasimaSenediTeminat" />
+		</s:sequence>
+	</s:complexType>
+
+	<s:complexType name="ArrayOfKalem">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="kalem" nillable="true" type="tns:kalem" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="kalem">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="kalemNo" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="esyaninTicariTanimi" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="esyalar" type="tns:ArrayOfEsya" />
+			<s:element minOccurs="0" maxOccurs="1" name="kullanilmisEsyaKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="esyaKodu" type="tns:EsyaKodu" />
+			<s:element minOccurs="0" maxOccurs="1" name="tercihliTarifeKodlari" type="tns:ArrayOfTercihliTarife" />
+			<s:element minOccurs="0" maxOccurs="1" name="menseUlkeKodu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="kiymetBildirimFormu" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="tarimPolitikasi" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="kota" type="s:boolean" />
+			<s:element minOccurs="0" maxOccurs="1" name="tamamlayiciOlculer" type="tns:ArrayOfTamamlayiciOlcu" />
+			<s:element minOccurs="0" maxOccurs="1" name="dovizVeFaturaBedeli" type="tns:DovizVeFaturaBedeli" />
+			<s:element minOccurs="0" maxOccurs="1" name="hesaplamaYontemi" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="istatistikiKiymet" type="s:decimal" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfEsya">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="Esya" nillable="true" type="tns:Esya" />
+		</s:sequence>
+
+	</s:complexType>
+	<s:complexType name="Esya">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="seriNumarasi" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="adedi" type="s:int" />
+			<s:element minOccurs="0" maxOccurs="1" name="markasi" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="modeli" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+
+	<s:complexType name="EsyaKodu">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="esyaKodu1" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="esyaKodu2" type="s:string" />
+			<s:element minOccurs="0" maxOccurs="1" name="esyaKodu3" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfTercihliTarife">
+		<s:sequence>
+
+			<s:element minOccurs="0" maxOccurs="unbounded" name="tercihliTarife" nillable="true" type="tns:tercihliTarife" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="tercihliTarife">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="tercihliTarifeKodu" type="s:string" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="ArrayOfTamamlayiciOlcu">
+
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="unbounded" name="tamamlayiciOlcu" nillable="true" type="tns:tamamlayiciOlcu" />
+		</s:sequence>
+	</s:complexType>
+	<s:complexType name="tamamlayiciOlcu">
+		<s:sequence>
+			<s:element minOccurs="0" maxOccurs="1" name="turu" type="s:string" />
+			<s:element minOccurs="1" maxOccurs="1" name="miktari" type="s:decimal" />
+		</s:sequence>
+
+	</s:complexType>
+</s:schema>

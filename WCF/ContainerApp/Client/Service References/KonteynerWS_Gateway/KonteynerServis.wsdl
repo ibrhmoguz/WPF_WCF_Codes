@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://bilgewebservisler.ABC.gov.tr" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="KonteynerServis" targetNamespace="http://bilgewebservisler.ABC.gov.tr" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://bilgewebservisler.ABC.gov.tr" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="TasimaBilgileriKaydet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="tasimalar" nillable="true" type="tns:Tasima" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Tasima">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OzetBeyanNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TasitAdi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SeferNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TasitNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GelisGidisTarihi" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GelisGidisBildirimNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsletmeKodu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Tipi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Yonu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="tasimaDetaylari" nillable="true" type="tns:ArrayOfTasimaDetay" />
+          <xs:element minOccurs="0" name="tescilNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Tasima" nillable="true" type="tns:Tasima" />
+      <xs:complexType name="ArrayOfTasimaDetay">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TasimaDetay" nillable="true" type="tns:TasimaDetay" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTasimaDetay" nillable="true" type="tns:ArrayOfTasimaDetay" />
+      <xs:complexType name="TasimaDetay">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TescilNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TasimaSenediNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KapAdedi" type="xs:int" />
+          <xs:element minOccurs="0" name="Turu" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="KonteynerNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NetAgirlik" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EsyaCinsi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BulunduguYer" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TasimaDetay" nillable="true" type="tns:TasimaDetay" />
+      <xs:element name="TasimaBilgileriKaydetResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="TasimaBilgileriKaydetResult" nillable="true" type="tns:Sonuc" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Sonuc">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IslemSonucu" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Hatalar" nillable="true" type="tns:ArrayOfHata" />
+          <xs:element minOccurs="0" name="TescilNo" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Sonuc" nillable="true" type="tns:Sonuc" />
+      <xs:complexType name="ArrayOfHata">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Hata" nillable="true" type="tns:Hata" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfHata" nillable="true" type="tns:ArrayOfHata" />
+      <xs:complexType name="Hata">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HataAciklamasi" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HataKodu" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Hata" nillable="true" type="tns:Hata" />
+      <xs:element name="KonteynerYeriniDegistir">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="bildirimNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="konteynerNo" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="bulunduguYer" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="KonteynerYeriniDegistirResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="KonteynerYeriniDegistirResult" nillable="true" type="tns:YerDegisiklikSonuc" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="YerDegisiklikSonuc">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IslemSonucu" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Hatalar" nillable="true" type="tns:ArrayOfHata" />
+          <xs:element minOccurs="0" name="Aciklama" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="YerDegisiklikSonuc" nillable="true" type="tns:YerDegisiklikSonuc" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IKonteyner_TasimaBilgileriKaydet_InputMessage">
+    <wsdl:part name="parameters" element="tns:TasimaBilgileriKaydet" />
+  </wsdl:message>
+  <wsdl:message name="IKonteyner_TasimaBilgileriKaydet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TasimaBilgileriKaydetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IKonteyner_KonteynerYeriniDegistir_InputMessage">
+    <wsdl:part name="parameters" element="tns:KonteynerYeriniDegistir" />
+  </wsdl:message>
+  <wsdl:message name="IKonteyner_KonteynerYeriniDegistir_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KonteynerYeriniDegistirResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IKonteyner">
+    <wsdl:operation name="TasimaBilgileriKaydet">
+      <wsdl:input wsaw:Action="http://bilgewebservisler.ABC.gov.tr/IKonteyner/TasimaBilgileriKaydet" message="tns:IKonteyner_TasimaBilgileriKaydet_InputMessage" />
+      <wsdl:output wsaw:Action="http://bilgewebservisler.ABC.gov.tr/IKonteyner/TasimaBilgileriKaydetResponse" message="tns:IKonteyner_TasimaBilgileriKaydet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KonteynerYeriniDegistir">
+      <wsdl:input wsaw:Action="http://bilgewebservisler.ABC.gov.tr/IKonteyner/KonteynerYeriniDegistir" message="tns:IKonteyner_KonteynerYeriniDegistir_InputMessage" />
+      <wsdl:output wsaw:Action="http://bilgewebservisler.ABC.gov.tr/IKonteyner/KonteynerYeriniDegistirResponse" message="tns:IKonteyner_KonteynerYeriniDegistir_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IKonteyner" type="tns:IKonteyner">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TasimaBilgileriKaydet">
+      <soap:operation soapAction="http://bilgewebservisler.ABC.gov.tr/IKonteyner/TasimaBilgileriKaydet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KonteynerYeriniDegistir">
+      <soap:operation soapAction="http://bilgewebservisler.ABC.gov.tr/IKonteyner/KonteynerYeriniDegistir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KonteynerServis">
+    <wsdl:port name="BasicHttpBinding_IKonteyner" binding="tns:BasicHttpBinding_IKonteyner">
+      <soap:address location="http://ws.gtb.gov.tr:8080/EXT/ABC/Konteyner/Provider" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
